@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="02118566-3766-4e59-ad38-c7c4c7329940" name="Changes" comment="" />
+    <list default="true" id="02118566-3766-4e59-ad38-c7c4c7329940" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/recommendation-system-integration.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/recommendation-system-integration.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleaning/clean_interactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleaning/clean_interactions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleaning/clean_meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleaning/clean_meta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/cbf.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation/cbf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/cf.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation/cf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation/eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/hybrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation/hybrid.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +22,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Cookkkkie&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Cookkkkie/recommendation-system-integratoin-validation.git&quot;,
+    &quot;accountId&quot;: &quot;fdbcdb31-718d-46ff-8c01-41414f4a6637&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2x39Ih68UqpVekM9rGUwjfd2nTI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -20,20 +44,40 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.cbf.executor": "Run",
+    "Python.cf.executor": "Run",
+    "Python.clean_interactions.executor": "Run",
+    "Python.clean_meta.executor": "Run",
+    "Python.eval.executor": "Run",
+    "Python.hybrid.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/aleks/PycharmProjects/recommendation-system-integratoin-validation/dataset",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\aleks\PycharmProjects\recommendation-system-integratoin-validation\dataset" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aleks\PycharmProjects\recommendation-system-integratoin-validation\dataset\old" />
+      <recent name="C:\Users\aleks\PycharmProjects\recommendation-system-integratoin-validation\dataset\meta" />
+      <recent name="C:\Users\aleks\PycharmProjects\recommendation-system-integratoin-validation\dataset\interactions" />
+      <recent name="C:\Users\aleks\PycharmProjects\recommendation-system-integratoin-validation\dataset" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PY-251.23774.444" />
-        <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="02118566-3766-4e59-ad38-c7c4c7329940" name="Changes" comment="" />

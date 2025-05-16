@@ -1,7 +1,8 @@
 import pandas as pd
+from AutoClean import AutoClean
 
-dataset_path = '/home/oleksii/PycharmProjects/PythonProject/dataset/interactions/Appliances.jsonl'
-output_clean = '/home/oleksii/PycharmProjects/PythonProject/dataset/cleaned_interactions.parquet'
+dataset_path = '../dataset/interactions/Appliances.jsonl'
+output_clean = '../dataset/cleaned_interactions.parquet'
 
 RECENT_YEARS = 6
 MIN_INTERACTIONS = 5
@@ -32,18 +33,25 @@ if u_ratio < MAX_DROP_RATIO:
     df = df[~df['user_id'].isin(low_u)]
 if i_ratio < MAX_DROP_RATIO:
     df = df[~df['parent_asin'].isin(low_i)]
+else:
+    df_u = df[~df['user_id'].isin(low_u)]
+    df_i = df[~df['parent_asin'].isin(low_i)]
+    df_u.to_parquet("user.parquet", index = False)
+    df_i.to_parquet("item.parquet", index = False)
 
 n_users, n_items = df['user_id'].nunique(), df['parent_asin'].nunique()
 if n_users > n_items:
-    print('Dataset has more users than items: item-based CF is recommended.')
+    print(f'Dataset has more users({n_users}) than items({n_items}): item-based CF is recommended.')
 else:
-    print('Dataset has more items than users: user-based CF is recommended.')
-
+    print(f'Dataset has less users({n_users}) than items({n_items}): user-based CF is recommended.')
 train_end = seven_years_ago + pd.DateOffset(years=3)
 test_end  = train_end + pd.DateOffset(years=2)
 
 df_train = df[df['timestamp'] < train_end]
 df_test = df[(df['timestamp'] >= train_end) & (df['timestamp'] < test_end)]
+
+df_train = AutoClean(df_train).output
+df_test = AutoClean(df_test).output
 
 print(f"Train: {df_train.shape[0]} rows, {df_train['user_id'].nunique()} users, "
       f"{df_train['parent_asin'].nunique()} items")

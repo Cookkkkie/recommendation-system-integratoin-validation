@@ -6,7 +6,7 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
-INPUT_FILE = '/home/oleksii/PycharmProjects/PythonProject/dataset/meta/meta_Appliances.jsonl'
+INPUT_FILE = '../dataset/meta/meta_Appliances.jsonl'
 OUTPUT_FILE = '../dataset/meta.parquet'
 COLS_TO_KEEP = [
     'parent_asin',
@@ -14,13 +14,12 @@ COLS_TO_KEEP = [
     'features',
     'description',
     'details',
-    'price',
+    'price'
 ]
 TEXT_COLS       = ['title']
 LIST_COLS       = ['features', 'description', 'details']
 LEMMATIZE_COLS  = ['title', 'features', 'description', 'details']
 
-print(f"Reading data from {INPUT_FILE}...")
 df_raw = pd.read_json(INPUT_FILE, lines=True)
 
 for col in COLS_TO_KEEP:
@@ -65,4 +64,4 @@ for col in LEMMATIZE_COLS:
         )
 
 df_clean.to_parquet(OUTPUT_FILE, index=False)
-print(f"Cleaned data (with price & details) saved to {OUTPUT_FILE}.")
+print(f"Cleaned data saved to {OUTPUT_FILE}.")

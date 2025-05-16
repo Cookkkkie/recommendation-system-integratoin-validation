@@ -4,7 +4,7 @@ N = 10
 w_cf = 0.6
 w_cbf = 1- w_cf
 
-cf_df = pd.read_parquet('../dataset/all_user_recs_cf.parquet')
+cf_df = pd.read_parquet('../dataset/all_user_recs_cf_ib.parquet')
 cbf_df = pd.read_parquet('../dataset/all_user_recs_cbf.parquet')
 
 cf_lists = cf_df.groupby('user_id')['recommended_asin'].apply(list)
