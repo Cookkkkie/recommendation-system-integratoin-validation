@@ -19,7 +19,7 @@ data = Dataset.load_from_df(df[["user_id", "parent_asin", "rating"]], reader)
 trainset = data.build_full_trainset()
 
 # To set user-based CF, set "user_based": True
-sim_options = {"name": "cosine", "user_based": False}
+sim_options = {"name": "cosine", "user_based": True}
 algo = KNNBaseline(sim_options=sim_options, k=25)
 algo.fit(trainset)
 
@@ -44,10 +44,10 @@ def get_top_n(user_id, n=5):
 
 rows = []
 for user_id in user_ids:
-    top10 = get_top_n(user_id, n=10)
-    for asin in top10:
+    recs = get_top_n(user_id, n=30)
+    for asin in recs:
         rows.append({"user_id": user_id, "recommended_asin": asin})
 #For future evaluation keep name all_user_recs_cf_ib for Item-Based and all_user_recs_cf_ub for User-Based
 recs_df = pd.DataFrame(rows).to_parquet(
-    "../dataset/all_user_recs_cf_ib.parquet", index=False
+    "../dataset/all_user_recs_cf_ub.parquet", index=False
 )

@@ -4,7 +4,7 @@ from AutoClean import AutoClean
 dataset_path = '../dataset/interactions/Appliances.jsonl'
 output_clean = '../dataset/cleaned_interactions.parquet'
 
-RECENT_YEARS = 6
+RECENT_YEARS = 11
 MIN_INTERACTIONS = 5
 MAX_DROP_RATIO = 0.35
 
@@ -12,12 +12,12 @@ MAX_DROP_RATIO = 0.35
 df = pd.read_json(dataset_path, lines=True)[['user_id', 'parent_asin', 'rating', 'timestamp']].sort_values('timestamp', ascending=True)
 
 
-df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
 df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s', errors='coerce')
+cutoff = pd.Timestamp.now() - pd.DateOffset(years=RECENT_YEARS)
+df = df[df['timestamp'] >= cutoff]
 
-seven_years_ago = pd.Timestamp.now() - pd.DateOffset(years=RECENT_YEARS)
-df = df[df['timestamp'] >= seven_years_ago]
-
+df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
+df = df[df['rating'] >= 3]
 
 user_freq = df['user_id'].value_counts()
 item_freq = df['parent_asin'].value_counts()
@@ -44,8 +44,8 @@ if n_users > n_items:
     print(f'Dataset has more users({n_users}) than items({n_items}): item-based CF is recommended.')
 else:
     print(f'Dataset has less users({n_users}) than items({n_items}): user-based CF is recommended.')
-train_end = seven_years_ago + pd.DateOffset(years=3)
-test_end  = train_end + pd.DateOffset(years=2)
+train_end = cutoff + pd.DateOffset(years=5)
+test_end  = train_end + pd.DateOffset(months = 2)
 
 df_train = df[df['timestamp'] < train_end]
 df_test = df[(df['timestamp'] >= train_end) & (df['timestamp'] < test_end)]

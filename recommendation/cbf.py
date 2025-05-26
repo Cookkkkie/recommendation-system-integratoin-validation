@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
     all_rows = []
     for user_id in user_hist.keys():
-        recs = recommend_items(user_id, user_hist, meta_df, tfidf_matrix, top_n=10)
+        recs = recommend_items(user_id, user_hist, meta_df, tfidf_matrix, top_n=30)
         for asin in recs:
             all_rows.append(
                 {"user_id": user_id, "recommended_asin": asin}

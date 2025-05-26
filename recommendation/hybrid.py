@@ -1,6 +1,6 @@
 import pandas as pd
 
-N = 10
+N = 25
 w_cf = 0.6
 w_cbf = 1- w_cf
 
